@@ -119,11 +119,11 @@ Returns:
 
 - Retrieve relevant messages using vector search.
 
- -- Generalizable
+ - Generalizable
 
- -- Simple
+ - Simple
 
- -- Works with varied phrasing
+ - Works with varied phrasing
 
 3) Fine-Tuned QA Model
 
