@@ -1,4 +1,4 @@
-📘 Member QA Service
+``📘 Member QA Service
 
 A lightweight FastAPI application that answers natural-language questions using member messages retrieved from the provided public API.
 
