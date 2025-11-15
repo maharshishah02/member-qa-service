@@ -2,11 +2,11 @@
 
 A lightweight FastAPI application that answers natural-language questions using member messages retrieved from the provided public API.
 
-👉 Live Deployment:
+## Live Deployment:
 ```
 https://maharshi02-member-qa-service.hf.space/chat/
 ```
-✨ Goal
+## Goal
 
 The service answers natural language questions such as:
 
@@ -20,7 +20,7 @@ Given a question, the API returns:
 ```
 { "answer": "..." }
 ```
-🚀 Features
+## Features
 
 ✅ FastAPI endpoint /ask
 
@@ -40,7 +40,7 @@ Reads all member messages from:
 
 Docker-based FastAPI Space deployed on Hugging Face.
 
-📡 API Endpoints
+## API Endpoints
 
 1️⃣ Ask a Question
 
@@ -61,7 +61,7 @@ Example Response:
 
 ```/chat/```
 
-🧠 System Architecture
+## System Architecture
 
                ┌─────────────────────┐
                │   /messages API     │
@@ -81,7 +81,7 @@ Example Response:
                          │
                   JSON Answer Output
 
-🔧 Tech Stack
+## Tech Stack
 
 1. FastAPI – backend API
 
@@ -93,7 +93,7 @@ Example Response:
 
 5. Docker – deployment on Hugging Face
 
-🧪 How It Works
+## How It Works
 
 1) Downloads all messages from the /messages API
 
@@ -107,56 +107,56 @@ Returns:
 
 ```{ "answer": "..." }```
 
-⭐ Bonus 1: Design Notes (Alternative Approaches)
+## Bonus 1: Design Notes (Alternative Approaches)
 
 1) Rule-Based Parsing
 
-Keyword mapping to message fields.
+- Keyword mapping to message fields.
 
-❌ Too brittle for free-form natural language.
+- ❌ Too brittle for free-form natural language.
 
 2) Embedding-Based Semantic Retrieval (Chosen Approach)
 
-Retrieve relevant messages using vector search.
+- Retrieve relevant messages using vector search.
 
-✔️ Generalizable
+ ✔️ Generalizable
 
-✔️ Simple
+ ✔️ Simple
 
-✔️ Works with varied phrasing
+ ✔️ Works with varied phrasing
 
 3) Fine-Tuned QA Model
 
-Domain-specific training.
+- omain-specific training.
 
-❌ Too heavy for assignment scope.
+- ❌ Too heavy for assignment scope.
 
-⭐ Bonus 2: Data Insights
+## Bonus 2: Data Insights
 
 From analyzing the member message dataset:
 
 1) Inconsistent date formats
 
-“next June”, “6/10/2024”, “June 2024”
-→ Requires LLM interpretation.
+ “next June”, “6/10/2024”, “June 2024”
+ → Requires LLM interpretation.
 
 2) Ambiguous references
 
-“her trip”, “my car”
-→ Needs context-based disambiguation.
+ “her trip”, “my car”
+ → Needs context-based disambiguation.
 
 3) Missing information
 
-Some messages imply details but never state them explicitly.
+ Some messages imply details but never state them explicitly.
 
 4) Name variations
 
-“Vikram”, “Vik”
-→ Must reference same member.
+ “Vikram”, “Vik”
+ → Must reference same member.
 
 These inconsistencies justify using semantic retrieval + LLM reasoning instead of rule-based parsing.
 
-🏗️ Running Locally
+## Running Locally
 
 Install dependencies:
 
@@ -174,7 +174,7 @@ API Docs → http://localhost:8000/docs
 
 Chat UI → http://localhost:8000/chat/
 
-📦 Deployment
+## Deployment
 
 This application is deployed using a Dockerized FastAPI Space on Hugging Face.
 
