@@ -34,7 +34,7 @@ Interactive chat interface for natural-language Q&A.
 
 Reads all member messages from:
 
-```GET https://november7-730026606190.europe-west1.run.app/messages```
+```https://november7-730026606190.europe-west1.run.app/docs#/default/get_messages_messages__get```
 
 ✅ Public Deployment
 
