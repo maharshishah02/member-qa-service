@@ -118,11 +118,8 @@ Returns:
 2) Embedding-Based Semantic Retrieval (Chosen Approach)
 
 - Retrieve relevant messages using vector search.
-
  - Generalizable
-
  - Simple
-
  - Works with varied phrasing
 
 3) Fine-Tuned QA Model
