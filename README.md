@@ -2,11 +2,8 @@
 
 A lightweight FastAPI application that answers natural-language questions using member messages retrieved from the provided public API.
 
-
 👉 Live Deployment:
-
 https://maharshi02-member-qa-service.hf.space/chat/
-
 
 ✨ Goal
 
@@ -22,55 +19,46 @@ Given a question, the API returns:
 
 { "answer": "..." }
 
-
 🚀 Features
-
 ✅ FastAPI endpoint /ask
 
-Accepts a question via a query parameter and returns the inferred answer based on member messages.
+Accepts a question via query parameter and returns the inferred answer.
 
 ✅ Gradio UI (/chat)
 
-A simple web interface for interactive Q&A.
+Interactive chat interface for natural-language Q&A.
 
 ✅ Data Source Integration
 
-The service pulls member messages from the official assessment API:
+Reads all member messages from:
 
 GET https://november7-730026606190.europe-west1.run.app/messages
 
-✅ Deployed on Hugging Face
+✅ Public Deployment
 
-Runs in a Docker-based FastAPI Space and is publicly accessible.
+Docker-based FastAPI Space deployed on Hugging Face.
 
 📡 API Endpoints
-
 1️⃣ Ask a Question
-
 GET /ask?query=hello
 
-Response:
+
+Example Response:
 
 {
-
   "answer": "Layla’s trip to London is planned for June 2024."
-  
 }
 
-2️⃣ Docs
-
-Swagger UI documentation
+2️⃣ API Docs (Swagger UI)
 /docs
 
 3️⃣ Gradio Chat UI
-
-Interactive UI:
 /chat/
 
 🧠 System Architecture
 
                ┌─────────────────────┐
-               │  /messages API      │
+               │   /messages API     │
                │  External Data Src  │
                └─────────┬───────────┘
                          │
@@ -83,75 +71,105 @@ Interactive UI:
                          │
                LLM Reasoning Layer
                          │
-          FastAPI `/ask` → Returns JSON
+               FastAPI `/ask` Endpoint
+                         │
+                  JSON Answer Output
 
 🔧 Tech Stack
 
-FastAPI – core backend
+FastAPI – backend API
 
-Gradio – UI
+Gradio – chat interface
 
-OpenAI model – natural-language reasoning
+OpenAI model – reasoning engine
 
-Python requests/httpx – message fetching
+httpx / requests – data fetching
 
-Docker – for Hugging Face deployment
+Docker – deployment on Hugging Face
 
 🧪 How It Works
 
-Downloads all member messages from the /messages API
+Downloads all messages from the /messages API
 
-Normalizes & indexes messages
+Normalizes & indexes the messages
 
-Performs semantic retrieval to select the most relevant messages
+Performs semantic retrieval to find relevant messages
 
-Sends the question + selected messages to the LLM
+Sends question + retrieved context to an LLM
 
-Returns the final answer as JSON
+Returns:
 
+{ "answer": "..." }
 
-⭐ Bonus 1: Design Notes
-Alternative Approaches Considered
-1) Rule-Based Parsing:
-Extract keywords and map them to message fields.
-Rejected because it breaks easily with flexible natural language.
-2) Embedding-Based Vector Search (Chosen Approach):
-Convert messages into embeddings, retrieve top-k related messages.
-Works well with varied language and is simple to implement.
-3) Fine-Tuned QA Model:
-Could train a domain-specific model on historical QA pairs.
-Considered too heavy for the assignment scope.
+⭐ Bonus 1: Design Notes (Alternative Approaches)
+1) Rule-Based Parsing
+
+Keyword mapping to message fields.
+❌ Too brittle for free-form natural language.
+
+2) Embedding-Based Semantic Retrieval (Chosen Approach)
+
+Retrieve relevant messages using vector search.
+✔️ Generalizable
+✔️ Simple
+✔️ Works with varied phrasing
+
+3) Fine-Tuned QA Model
+
+Domain-specific training.
+❌ Too heavy for assignment scope.
 
 ⭐ Bonus 2: Data Insights
-From inspecting the member messages dataset:
-Anomalies & Inconsistencies Found
-1) Inconsistent date formats
-Some messages contain dates in natural language (“next June”), others use exact formats.
-2) Ambiguous references
-Some messages reference events or people not fully identifiable (e.g., “her trip”, “my car”).
-3) Missing information
-Several messages hint at a topic (e.g., travel plans) without explicit details.
-4) Name variations
-Some members appear to have nicknames or spelling variations (“Vikram” vs “Vik”).
 
-Such inconsistencies require using semantic retrieval + LLM reasoning rather than direct parsing.
+From analyzing the member message dataset:
+
+1) Inconsistent date formats
+
+“next June”, “6/10/2024”, “June 2024”
+→ Requires LLM interpretation.
+
+2) Ambiguous references
+
+“her trip”, “my car”
+→ Needs context-based disambiguation.
+
+3) Missing information
+
+Some messages imply details but never state them explicitly.
+
+4) Name variations
+
+“Vikram”, “Vik”
+→ Must reference same member.
+
+These inconsistencies justify using semantic retrieval + LLM reasoning instead of rule-based parsing.
 
 🏗️ Running Locally
 
 Install dependencies:
+
 pip install -r requirements.txt
 
-Run FastAPI server:
+
+Run development server:
+
 uvicorn app.main:app --reload
 
-Open:
 
-API → http://localhost:8000/docs
+Open in browser:
+
+API Docs → http://localhost:8000/docs
 
 Chat UI → http://localhost:8000/chat/
 
 📦 Deployment
 
-The service is deployed using a Docker-based Hugging Face Space:
+This application is deployed using a Dockerized FastAPI Space on Hugging Face.
 
-It exposes FastAPI on port 7860 and runs automatically.
+It exposes FastAPI on port 7860 and automatically loads via:
+
+uvicorn server:app --host 0.0.0.0 --port 7860
+
+👤 Author
+
+Maharshi Shah
