@@ -9,11 +9,8 @@ https://maharshi02-member-qa-service.hf.space/chat/
 ## Goal
 
 The service answers natural language questions such as:
-
 - “When is Layla planning her trip to London?”
-
 - “How many cars does Vikram Desai have?”
-
 - “What are Amira’s favorite restaurants?”
 
 Given a question, the API returns:
@@ -23,21 +20,17 @@ Given a question, the API returns:
 ## Features
 
 ✅ FastAPI endpoint /ask
-
 - Accepts a question via query parameter and returns the inferred answer.
 
 ✅ Gradio UI (/chat)
-
 - Interactive chat interface for natural-language Q&A.
 
 ✅ Data Source Integration
-
 - Reads all member messages from:
 
 ```https://november7-730026606190.europe-west1.run.app/docs#/default/get_messages_messages__get```
 
 ✅ Public Deployment
-
 - Docker-based FastAPI Space deployed on Hugging Face.
 
 ## API Endpoints
