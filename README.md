@@ -1,4 +1,4 @@
-``📘 Member QA Service
+📘 Member QA Service
 
 A lightweight FastAPI application that answers natural-language questions using member messages retrieved from the provided public API.
 
@@ -68,6 +68,7 @@ Interactive UI:
 /chat/
 
 🧠 System Architecture
+
                ┌─────────────────────┐
                │  /messages API      │
                │  External Data Src  │
@@ -85,17 +86,27 @@ Interactive UI:
           FastAPI `/ask` → Returns JSON
 
 🔧 Tech Stack
+
 FastAPI – core backend
+
 Gradio – UI
+
 OpenAI model – natural-language reasoning
+
 Python requests/httpx – message fetching
+
 Docker – for Hugging Face deployment
 
 🧪 How It Works
+
 Downloads all member messages from the /messages API
+
 Normalizes & indexes messages
+
 Performs semantic retrieval to select the most relevant messages
+
 Sends the question + selected messages to the LLM
+
 Returns the final answer as JSON
 
 
@@ -126,14 +137,21 @@ Some members appear to have nicknames or spelling variations (“Vikram” vs �
 Such inconsistencies require using semantic retrieval + LLM reasoning rather than direct parsing.
 
 🏗️ Running Locally
+
 Install dependencies:
 pip install -r requirements.txt
+
 Run FastAPI server:
 uvicorn app.main:app --reload
+
 Open:
+
 API → http://localhost:8000/docs
+
 Chat UI → http://localhost:8000/chat/
 
 📦 Deployment
+
 The service is deployed using a Docker-based Hugging Face Space:
+
 It exposes FastAPI on port 7860 and runs automatically.
