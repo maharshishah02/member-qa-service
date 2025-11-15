@@ -2,9 +2,11 @@
 
 A lightweight FastAPI application that answers natural-language questions using member messages retrieved from the provided public API.
 
+
 👉 Live Deployment:
 
 https://maharshi02-member-qa-service.hf.space/chat/
+
 
 ✨ Goal
 
@@ -17,7 +19,9 @@ The service answers natural language questions such as:
 “What are Amira’s favorite restaurants?”
 
 Given a question, the API returns:
+
 { "answer": "..." }
+
 
 🚀 Features
 
@@ -32,6 +36,7 @@ A simple web interface for interactive Q&A.
 ✅ Data Source Integration
 
 The service pulls member messages from the official assessment API:
+
 GET https://november7-730026606190.europe-west1.run.app/messages
 
 ✅ Deployed on Hugging Face
@@ -45,20 +50,21 @@ Runs in a Docker-based FastAPI Space and is publicly accessible.
 GET /ask?query=hello
 
 Response:
+
 {
+
   "answer": "Layla’s trip to London is planned for June 2024."
+  
 }
 
 2️⃣ Docs
 
 Swagger UI documentation
-
 /docs
 
 3️⃣ Gradio Chat UI
 
 Interactive UI:
-
 /chat/
 
 🧠 System Architecture
