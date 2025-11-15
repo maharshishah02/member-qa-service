@@ -113,20 +113,20 @@ Returns:
 
 - Keyword mapping to message fields.
 
-- ❌ Too brittle for free-form natural language.
+- Too brittle for free-form natural language.
 
 2) Embedding-Based Semantic Retrieval (Chosen Approach)
 
-- Retrieve relevant messages using vector search.
- - Generalizable
- - Simple
- - Works with varied phrasing
+- Retrieve relevant messages using vector search:
+- - Generalizable
+  - - Simple
+    - - Works with varied phrasing
 
 3) Fine-Tuned QA Model
 
-- omain-specific training.
+- domain-specific training.
 
-- ❌ Too heavy for assignment scope.
+- Too heavy for assignment scope.
 
 ## Bonus 2: Data Insights
 
