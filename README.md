@@ -1,10 +1,11 @@
-📘 Member QA Service
+#📘 Member QA Service
 
 A lightweight FastAPI application that answers natural-language questions using member messages retrieved from the provided public API.
 
 👉 Live Deployment:
+```
 https://maharshi02-member-qa-service.hf.space/chat/
-
+```
 ✨ Goal
 
 The service answers natural language questions such as:
@@ -16,10 +17,11 @@ The service answers natural language questions such as:
 “What are Amira’s favorite restaurants?”
 
 Given a question, the API returns:
-
+```
 { "answer": "..." }
-
+```
 🚀 Features
+
 ✅ FastAPI endpoint /ask
 
 Accepts a question via query parameter and returns the inferred answer.
@@ -32,28 +34,32 @@ Interactive chat interface for natural-language Q&A.
 
 Reads all member messages from:
 
-GET https://november7-730026606190.europe-west1.run.app/messages
+```GET https://november7-730026606190.europe-west1.run.app/messages```
 
 ✅ Public Deployment
 
 Docker-based FastAPI Space deployed on Hugging Face.
 
 📡 API Endpoints
-1️⃣ Ask a Question
-GET /ask?query=hello
 
+1️⃣ Ask a Question
+
+```GET /ask?query=hello```
 
 Example Response:
-
+```
 {
   "answer": "Layla’s trip to London is planned for June 2024."
 }
+```
 
 2️⃣ API Docs (Swagger UI)
-/docs
+
+```/docs```
 
 3️⃣ Gradio Chat UI
-/chat/
+
+```/chat/```
 
 🧠 System Architecture
 
@@ -99,24 +105,30 @@ Sends question + retrieved context to an LLM
 
 Returns:
 
-{ "answer": "..." }
+```{ "answer": "..." }```
 
 ⭐ Bonus 1: Design Notes (Alternative Approaches)
+
 1) Rule-Based Parsing
 
 Keyword mapping to message fields.
+
 ❌ Too brittle for free-form natural language.
 
 2) Embedding-Based Semantic Retrieval (Chosen Approach)
 
 Retrieve relevant messages using vector search.
+
 ✔️ Generalizable
+
 ✔️ Simple
+
 ✔️ Works with varied phrasing
 
 3) Fine-Tuned QA Model
 
 Domain-specific training.
+
 ❌ Too heavy for assignment scope.
 
 ⭐ Bonus 2: Data Insights
@@ -148,12 +160,12 @@ These inconsistencies justify using semantic retrieval + LLM reasoning instead o
 
 Install dependencies:
 
-pip install -r requirements.txt
+```pip install -r requirements.txt```
 
 
 Run development server:
 
-uvicorn app.main:app --reload
+```uvicorn app.main:app --reload```
 
 
 Open in browser:
@@ -168,7 +180,7 @@ This application is deployed using a Dockerized FastAPI Space on Hugging Face.
 
 It exposes FastAPI on port 7860 and automatically loads via:
 
-uvicorn server:app --host 0.0.0.0 --port 7860
+```uvicorn server:app --host 0.0.0.0 --port 7860```
 
 👤 Author
 
