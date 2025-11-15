@@ -119,11 +119,11 @@ Returns:
 
 - Retrieve relevant messages using vector search.
 
- ✔️ Generalizable
+ -- Generalizable
 
- ✔️ Simple
+ -- Simple
 
- ✔️ Works with varied phrasing
+ -- Works with varied phrasing
 
 3) Fine-Tuned QA Model
 
@@ -137,21 +137,21 @@ From analyzing the member message dataset:
 
 1) Inconsistent date formats
 
- “next June”, “6/10/2024”, “June 2024”
+ - “next June”, “6/10/2024”, “June 2024”
  → Requires LLM interpretation.
 
 2) Ambiguous references
 
- “her trip”, “my car”
+ - “her trip”, “my car”
  → Needs context-based disambiguation.
 
 3) Missing information
 
- Some messages imply details but never state them explicitly.
+ - Some messages imply details but never state them explicitly.
 
 4) Name variations
 
- “Vikram”, “Vik”
+ - “Vikram”, “Vik”
  → Must reference same member.
 
 These inconsistencies justify using semantic retrieval + LLM reasoning instead of rule-based parsing.
@@ -182,6 +182,6 @@ It exposes FastAPI on port 7860 and automatically loads via:
 
 ```uvicorn server:app --host 0.0.0.0 --port 7860```
 
-👤 Author
+## Author
 
 Maharshi Shah
