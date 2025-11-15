@@ -1,4 +1,4 @@
-#📘 Member QA Service
+# Member QA Service
 
 A lightweight FastAPI application that answers natural-language questions using member messages retrieved from the provided public API.
 
@@ -83,25 +83,25 @@ Example Response:
 
 🔧 Tech Stack
 
-FastAPI – backend API
+1. FastAPI – backend API
 
-Gradio – chat interface
+2. Gradio – chat interface
 
-OpenAI model – reasoning engine
+3. OpenAI model – reasoning engine
 
-httpx / requests – data fetching
+4. httpx / requests – data fetching
 
-Docker – deployment on Hugging Face
+5. Docker – deployment on Hugging Face
 
 🧪 How It Works
 
-Downloads all messages from the /messages API
+1) Downloads all messages from the /messages API
 
-Normalizes & indexes the messages
+2) Normalizes & indexes the messages
 
-Performs semantic retrieval to find relevant messages
+3) Performs semantic retrieval to find relevant messages
 
-Sends question + retrieved context to an LLM
+4) Sends question + retrieved context to an LLM
 
 Returns:
 
